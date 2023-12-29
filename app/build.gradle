@@ -11,6 +11,7 @@ plugins {
 android {
     namespace 'com.e.bloctap2pay'
     compileSdk 34
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
 //        applicationId "com.e.bloctap2pay"
