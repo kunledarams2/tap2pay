@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/accountTypeFragment">
+
+    <fragment
+        android:id="@+id/accountTypeFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.AccountTypeFragment"
+        android:label="AccountTypeFragment"
+        tools:layout="@layout/fragment_account_type">
+        <action
+            android:id="@+id/action_accountTypeFragment_to_amountFragment"
+            app:destination="@id/amountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/amountFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.AmountFragment"
+        android:label="AmountFragment"
+        tools:layout="@layout/fragment_amount">
+        <action
+            android:id="@+id/action_amountFragment_to_confirmAmountFragment"
+            app:destination="@id/confirmAmountFragment" />
+        <action
+            android:id="@+id/action_amountFragment_to_accountTypeFragment"
+            app:destination="@id/accountTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmAmountFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.ConfirmAmountFragment"
+        android:label="ConfirmAmountFragment"
+        tools:layout="@layout/fragment_confirm_amount">
+
+        <action
+            android:id="@+id/action_confirmAmountFragment_to_tapPayFragment"
+            app:destination="@id/tapPayFragment" />
+        <action
+            android:id="@+id/action_confirmAmountFragment_to_amountFragment"
+            app:destination="@id/amountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionPinFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.TransactionPinFragment"
+        android:label="TransactionPinFragment"
+        tools:layout="@layout/fragment_transaction_pin">
+
+        <argument
+            android:name="amount"
+            app:argType="string" />
+        <argument
+            android:name="accountType"
+            app:argType="string" />
+        <argument
+            android:name="cardData"
+            app:argType="com.e.bloctap2pay.nfc.model.EmvCard" />
+        <action
+            android:id="@+id/action_transactionPinFragment_to_transactionStatusFragment"
+            app:destination="@id/transactionStatusFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/transactionStatusFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.TransactionStatusFragment"
+        android:label="TransactionStatusFragment"
+        tools:layout="@layout/fragment_transaction_status"/>
+    <fragment
+        android:id="@+id/tapPayFragment"
+        android:name="com.e.bloctap2pay.nfc.cashout.TapPayFragment"
+        android:label="TapPayFragment" >
+        <action
+            android:id="@+id/action_tapPayFragment_to_transactionPinFragment"
+            app:destination="@id/transactionPinFragment" />
+    </fragment>
+</navigation>

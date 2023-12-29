@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragments.cashout.AccountTypeFragment">
+
+
+        <include
+            android:id="@+id/back_btn"
+            layout="@layout/nav_btn_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/graphik_medium"
+            android:text="Pick an account type"
+            android:textColor="#232324"
+            android:textFontWeight="600"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/back_btn"
+            app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/graphik_regular"
+            android:text="Select an account type to make payment"
+            android:textColor="#232324"
+            app:layout_constraintStart_toStartOf="@+id/textView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardSaving"
+            android:layout_width="165dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/light_blue_gradient_button"
+            app:layout_constraintEnd_toStartOf="@+id/cardCurrent"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+
+            <TextView
+                android:id="@+id/textView261"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/graphik_regular"
+                android:text="Savings Account"
+                android:textColor="#232324"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView51" />
+
+            <ImageView
+                android:id="@+id/imageView51"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/savings_account"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardCurrent"
+            android:layout_width="165dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/light_blue_gradient_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardSaving"
+            app:layout_constraintTop_toTopOf="@+id/cardSaving">
+
+
+            <TextView
+                android:id="@+id/textView2612"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/graphik_regular"
+                android:text="Current Account"
+                android:textColor="#232324"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView512" />
+
+            <ImageView
+                android:id="@+id/imageView512"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/current_account"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

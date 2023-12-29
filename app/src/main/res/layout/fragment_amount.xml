@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".nfc.cashout.AmountFragment">
+            <include
+                android:id="@+id/back_btn"
+                layout="@layout/nav_btn_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/graphik_medium"
+                android:text="Enter amount"
+                android:textColor="#232324"
+                android:textFontWeight="600"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/graphik_regular"
+                android:text="All amounts are in Nigerian Naira (₦)."
+                android:textColor="#232324"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <com.e.bloctap2pay.nfc.utils.CustomFontCurrencyEditText
+                android:id="@+id/edtAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_span="4"
+                android:background="@drawable/light_blue_gradient_button"
+                android:focusable="true"
+                android:fontFamily="@font/graphik_medium"
+                android:hint="₦ 20,000.00"
+                android:inputType="numberDecimal"
+                android:padding="@dimen/dp15"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:typeface="monospace"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="20dp"
+                android:shrinkColumns="*"
+                android:stretchColumns="*"
+                android:weightSum="120"
+                app:layout_constraintEnd_toEndOf="@+id/edtAmount"
+                app:layout_constraintStart_toStartOf="@+id/edtAmount"
+                app:layout_constraintTop_toBottomOf="@+id/edtAmount">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"
+                    android:gravity="center_horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:padding="@dimen/dp10"
+                        android:text="1"
+                        android:textColor="#000000"
+                        android:textSize="35dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="2"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="3"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+
+                </TableRow>
+                <!--     Row 4 Starts From Here -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp2"
+                    android:layout_weight="15"
+                    android:gravity="center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:padding="@dimen/dp10"
+                        android:text="4"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="5"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="6"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:gravity="center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:padding="@dimen/dp10"
+                        android:text="7"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="8"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="9"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                </TableRow>
+
+
+
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:gravity="center_horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:padding="@dimen/dp10"
+                        android:text="."
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="35dp"
+                        android:typeface="monospace" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonBackSpace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_span="1"
+                        android:background="@null"
+                        android:fontFamily="@font/graphik_medium"
+                        android:text="Delete"
+                        android:textAllCaps="false"
+
+                        android:textColor="#008DFA"
+                        android:textSize="@dimen/sp18"
+                        android:typeface="monospace" />
+
+
+
+
+                </TableRow>
+
+
+            </TableLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_ctn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/black_gradient_button"
+                android:fontFamily="@font/graphik_regular"
+                android:padding="4dp"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
