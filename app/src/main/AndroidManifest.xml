@@ -11,8 +11,9 @@
         android:required="true" />
 
     <application
-        android:name=".BlocTap2Pay">
+        >
 <!--        android:allowBackup="true"-->
+<!--        android:name=".BlocTap2Pay"-->
 <!--        android:dataExtractionRules="@xml/data_extraction_rules"-->
 <!--        android:fullBackupContent="@xml/backup_rules"-->
 <!--        android:icon="@mipmap/ic_launcher"-->
