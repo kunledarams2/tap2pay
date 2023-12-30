@@ -56,7 +56,7 @@ class BlocMainActivity : AppCompatActivity() {
          }
 
 
-        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+     /*   val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.d("Destination", destination.label.toString())
@@ -65,7 +65,7 @@ class BlocMainActivity : AppCompatActivity() {
                 Log.d("Arguments", arguments.toString())
                 bundle = arguments!!
             }
-        }
+        }*/
     }
 
 
