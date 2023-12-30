@@ -12,10 +12,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
-@AndroidEntryPoint
-class BlocTap2Pay(private val context: Context) {
-    @Inject
-    lateinit var prefsUtils: PrefsUtils
+class BlocTap2Pay @Inject constructor(
+    private val context: Context,
+    private var prefsUtils: PrefsUtils ) {
+
 
 
     fun initialClient(

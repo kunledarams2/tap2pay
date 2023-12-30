@@ -99,4 +99,6 @@ object AppModule {
     @Singleton
     fun provideGlobalSharedPreference(app: Application): SharedPreferences =
         app.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)
+
+
 }
