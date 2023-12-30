@@ -49,14 +49,14 @@ class BlocMainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.bloc_activity_main)
          if(intent.extras !=null){
              initialParams = intent.extras!!.getParcelable(INITIAL_PARAMS, InitialParams::class.java)!!
              prefsUtils.putObject(INITIAL_PARAMS, initialParams)
          }
 
 
-     /*   val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.d("Destination", destination.label.toString())
@@ -65,7 +65,7 @@ class BlocMainActivity : AppCompatActivity() {
                 Log.d("Arguments", arguments.toString())
                 bundle = arguments!!
             }
-        }*/
+        }
     }
 
 
