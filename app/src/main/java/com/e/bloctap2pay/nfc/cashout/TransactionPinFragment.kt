@@ -21,6 +21,7 @@ import com.e.bloctap2pay.nfc.model.CardDebitRequest
 import com.e.bloctap2pay.nfc.model.EmvCard
 import com.e.bloctap2pay.nfc.model.TransactionResult
 import com.e.bloctap2pay.nfc.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +30,7 @@ import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class TransactionPinFragment : Fragment(), TextWatcher {
 
     lateinit var binding:FragmentTransactionPinBinding
@@ -113,11 +114,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
                 processPayment( pin)
             }
 
-
-
         }
-
-
 
     }
 
