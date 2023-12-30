@@ -13,10 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-@HiltAndroidApp
 class BlocTap2Pay @Inject constructor(
     private val context: Context,
-    ): Application() {
+    ) {
 
 
 
