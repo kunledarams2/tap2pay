@@ -1,5 +1,6 @@
 package com.e.bloctap2pay
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Environment
@@ -12,14 +13,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-
+@HiltAndroidApp
 class BlocTap2Pay @Inject constructor(
     private val context: Context,
-    ) {
+    ): Application() {
 
-    @Inject
-//    lateinit var  prefsUtils: PrefsUtils
-//    private  var  prefsUtils= PrefsUtils()
+
 
     fun initialClient(
         deviceId: String,
