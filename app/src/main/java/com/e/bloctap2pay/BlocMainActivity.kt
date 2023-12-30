@@ -30,7 +30,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class BlocMainActivity : AppCompatActivity() {
 
 //    lateinit var navHostFragment: NavHostFragment
     private var mTagcomm: IsoDep? = null
