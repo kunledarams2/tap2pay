@@ -126,7 +126,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
     }
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        TODO("Not yet implemented")
+
     }
 
     override fun afterTextChanged(s: Editable) {
