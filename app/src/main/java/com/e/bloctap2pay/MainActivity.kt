@@ -32,7 +32,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navHostFragment: NavHostFragment
+//    lateinit var navHostFragment: NavHostFragment
     private var mTagcomm: IsoDep? = null
     private var mCard: EmvCard? = null
     private var mException = false
@@ -52,12 +52,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
          if(intent.extras !=null){
              initialParams = intent.extras!!.getParcelable(INITIAL_PARAMS, InitialParams::class.java)!!
-
              prefsUtils.putObject(INITIAL_PARAMS, initialParams)
          }
 
 
-        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.d("Destination", destination.label.toString())
