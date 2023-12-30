@@ -20,7 +20,7 @@ object Constants {
     }
 
     object Misc {
-        const val FILE_PROVIDER_AUTHORITY = "${BuildConfig.APPLICATION_ID}.fileprovider"
+//        const val FILE_PROVIDER_AUTHORITY = "${BuildConfig.APPLICATION_ID}.fileprovider"
         const val LIMIT = 40
         const val DEFAULT_FILENAME = "yyyy-MM-dd-HH-mm-ss-SSS"
         const val DEFAULT_PHOTO_EXTENSION = ".jpg"
