@@ -14,9 +14,10 @@ import javax.inject.Inject
 
 class BlocTap2Pay @Inject constructor(
     private val context: Context,
-    private var prefsUtils: PrefsUtils ) {
+    ) {
 
-
+    @Inject
+    lateinit var  prefsUtils: PrefsUtils
 
     fun initialClient(
         deviceId: String,
