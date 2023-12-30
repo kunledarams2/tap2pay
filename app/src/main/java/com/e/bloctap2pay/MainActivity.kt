@@ -5,23 +5,31 @@ import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.IsoDep
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.e.bloctap2pay.nfc.cashout.TapPayFragmentDirections
 import com.e.bloctap2pay.nfc.model.EmvCard
+import com.e.bloctap2pay.nfc.model.InitialParams
 import com.e.bloctap2pay.nfc.parser.EmvParser
 import com.e.bloctap2pay.nfc.utils.Constants
+import com.e.bloctap2pay.nfc.utils.Constants.PrefKeys.INITIAL_PARAMS
+import com.e.bloctap2pay.nfc.utils.PrefsUtils
 import com.e.bloctap2pay.nfc.utils.Provider
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.IOUtils
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.IOException
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var navHostFragment: NavHostFragment
@@ -33,10 +41,20 @@ class MainActivity : AppCompatActivity() {
 
     private var mDialog: ProgressDialog? = null
     private var bundle = Bundle()
+    @Inject
+    lateinit var  prefsUtils: PrefsUtils
+    lateinit var initialParams:InitialParams
 
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+         if(intent.extras !=null){
+             initialParams = intent.extras!!.getParcelable(INITIAL_PARAMS, InitialParams::class.java)!!
+
+             prefsUtils.putObject(INITIAL_PARAMS, initialParams)
+         }
 
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

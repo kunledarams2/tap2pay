@@ -12,13 +12,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-@HiltAndroidApp
+
 class BlocTap2Pay @Inject constructor(
     private val context: Context,
     ) {
 
     @Inject
-    lateinit var  prefsUtils: PrefsUtils
+//    lateinit var  prefsUtils: PrefsUtils
+//    private  var  prefsUtils= PrefsUtils()
 
     fun initialClient(
         deviceId: String,
@@ -28,6 +29,7 @@ class BlocTap2Pay @Inject constructor(
         appEnvironment: String,
     ) {
         if (deviceId.isNotEmpty() && clrPinKey.isNotEmpty() && terminalId.isNotEmpty() && secretKey.isNotEmpty()) {
+//            prefsUtils = PrefsUtils()
             val initialParams = InitialParams(
                 deviceId = deviceId,
                 terminalId =  terminalId,
@@ -35,10 +37,11 @@ class BlocTap2Pay @Inject constructor(
                 crlPinKey = clrPinKey,
                 appEnvironment = appEnvironment
             )
-            prefsUtils.putObject(INITIAL_PARAMS, initialParams)
+//            prefsUtils.putObject(INITIAL_PARAMS, initialParams)
             val intent = Intent(context, MainActivity::class.java)
-
+            intent.putExtra(INITIAL_PARAMS,initialParams )
             context.startActivity(intent)
+
 
         }
 
