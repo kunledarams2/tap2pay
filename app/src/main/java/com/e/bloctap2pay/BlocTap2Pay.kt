@@ -9,9 +9,10 @@ import com.e.bloctap2pay.nfc.model.InitialParams
 import com.e.bloctap2pay.nfc.utils.Constants.PrefKeys.INITIAL_PARAMS
 import com.e.bloctap2pay.nfc.utils.PrefsUtils
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-
+@HiltAndroidApp
 class BlocTap2Pay @Inject constructor(
     private val context: Context,
     ) {
@@ -36,6 +37,7 @@ class BlocTap2Pay @Inject constructor(
             )
             prefsUtils.putObject(INITIAL_PARAMS, initialParams)
             val intent = Intent(context, MainActivity::class.java)
+
             context.startActivity(intent)
 
         }
