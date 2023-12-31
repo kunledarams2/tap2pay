@@ -32,7 +32,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class BlocMainActivity : AppCompatActivity() {
 
-//    lateinit var navHostFragment: NavHostFragment
+    //    lateinit var navHostFragment: NavHostFragment
     private var mTagcomm: IsoDep? = null
     private var mCard: EmvCard? = null
     private var mException = false
@@ -41,22 +41,24 @@ class BlocMainActivity : AppCompatActivity() {
 
     private var mDialog: ProgressDialog? = null
     private var bundle = Bundle()
+
     @Inject
-    lateinit var  prefsUtils: PrefsUtils
-    lateinit var initialParams:InitialParams
+    lateinit var prefsUtils: PrefsUtils
+    private var initialParams: InitialParams?=null
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bloc_activity_main)
-         if(intent.extras !=null){
-             initialParams = intent.extras!!.getParcelable(INITIAL_PARAMS, InitialParams::class.java)!!
-             prefsUtils.putObject(INITIAL_PARAMS, initialParams)
-         }
+        if (intent.extras != null) {
+            initialParams = intent.extras!!.getParcelable(INITIAL_PARAMS, InitialParams::class.java)!!
+            prefsUtils.putObject(INITIAL_PARAMS, initialParams)
+        }
 
 
-        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.d("Destination", destination.label.toString())
@@ -85,11 +87,11 @@ class BlocMainActivity : AppCompatActivity() {
 
                 mTagcomm = IsoDep.get(tag)
                 if (mTagcomm == null) {
-                   /* CroutonUtils.display(
-                        this,
-                        getText(R.string.error_communication_nfc),
-                        CroutonUtils.CoutonColor.BLACK
-                    )*/
+                    /* CroutonUtils.display(
+                         this,
+                         getText(R.string.error_communication_nfc),
+                         CroutonUtils.CoutonColor.BLACK
+                     )*/
                     return
                 }
                 mException = false
@@ -126,11 +128,12 @@ class BlocMainActivity : AppCompatActivity() {
                             if (currentDestinationId == R.id.tapPayFragment) {
 
 
-
                                 val action =
                                     TapPayFragmentDirections.actionTapPayFragmentToTransactionPinFragment(
-                                       bundle.getString("Amount").toString(), bundle.getString(Constants.ACCOUNT_TYPE).toString(),
-                                        mCard!!,
+                                        bundle.getString("Amount").toString(),
+                                        bundle.getString(Constants.ACCOUNT_TYPE).toString(),
+                                        mCard!!,initialParams!!
+
                                     )
                                 navController.navigate(action)
                             }

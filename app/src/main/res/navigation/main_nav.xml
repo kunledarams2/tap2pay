@@ -54,9 +54,13 @@
         <argument
             android:name="cardData"
             app:argType="com.e.bloctap2pay.nfc.model.EmvCard" />
+        <argument
+            android:name="initParams"
+            app:argType="com.e.bloctap2pay.nfc.model.InitialParams" />
         <action
             android:id="@+id/action_transactionPinFragment_to_transactionStatusFragment"
             app:destination="@id/transactionStatusFragment" />
+
 
     </fragment>
     <fragment

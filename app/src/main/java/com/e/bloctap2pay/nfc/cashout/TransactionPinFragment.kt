@@ -30,7 +30,7 @@ import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import javax.inject.Inject
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class TransactionPinFragment : Fragment(), TextWatcher {
 
     lateinit var binding:FragmentTransactionPinBinding
@@ -39,10 +39,10 @@ class TransactionPinFragment : Fragment(), TextWatcher {
     private val args: TransactionPinFragmentArgs by navArgs()
     private var bundle=Bundle()
     private val mProvider: Provider = Provider()
-    @Inject
-    lateinit var prefsUtils: PrefsUtils
-    @Inject
-    lateinit var prefsValueHelper: PrefsValueHelper
+//    @Inject
+//    lateinit var prefsUtils: PrefsUtils
+
+//    private var prefsValueHelper: PrefsValueHelper?=null
     @Inject
     lateinit var blocApiService: BlocApiService
 
@@ -67,8 +67,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         super.onViewCreated(view, savedInstanceState)
         //init buttons
         initKeyViews()
-
-        initKeyViews()
+//        prefsValueHelper = PrefsValueHelper(prefsUtils)
         val nfcData: EmvCard = args.cardData
         Log.d("Tag", nfcData.toString())
 
@@ -241,7 +240,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         val tags: HashMap<*, *> = mProvider.tags
 //        Log.d("RequestCard","${ args.cardData.cardNumber} ->clrpinKey ${prefsValueHelper.terminalParams!!.clrpinkey}")
         val cardDebitRequest = CardDebitRequest(
-            serial_number = prefsValueHelper.initParams!!.deviceId, //
+            serial_number = args.initParams.deviceId, //
             field3 = "001000",
             field4 = getField4(BigDecimal(args.amount).toString() + "00"),
             field23 = "001"/*padLeft(mCard.pan,3, '0')!!*/,
@@ -249,7 +248,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
             field52 = PinEnc.encryptPinBlock(
                 pin,
                 args.cardData.cardNumber,
-                prefsValueHelper.initParams!!.crlPinKey
+                args.initParams.crlPinKey
             ),
             unpredictable = tags["9F37"].toString(),
             capabilities = "2028C0",
@@ -267,7 +266,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
 
         transactionResult.amount = args.amount.toDouble()
         transactionResult.mid = ""
-        transactionResult.tid = /*model.tid*/ prefsValueHelper.initParams!!.terminalId
+        transactionResult.tid = /*model.tid*/args.initParams.terminalId
         transactionResult.merchantName = ""
 
         transactionResult.maskedPan = StringUtils.processPan(args.cardData.cardNumber)
