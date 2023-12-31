@@ -42,15 +42,10 @@ class TransactionPinFragment : Fragment(), TextWatcher {
     private val mProvider: Provider = Provider()
 //    @Inject
 //    lateinit var prefsUtils: PrefsUtils
-
 //    private var prefsValueHelper: PrefsValueHelper?=null
     @Inject
     lateinit var blocApiService: BlocApiService
 
-//    protected val blocMainActivity: BlocMainActivity
-//        get() {
-//            return activity as? BlocMainActivity ?: throw IllegalStateException("Not attached!")
-//        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +80,6 @@ class TransactionPinFragment : Fragment(), TextWatcher {
                 true
             }
         }
-
 
         //create array
 
@@ -175,7 +169,6 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         return ""
     }
 
-
     /** Set the edittext views to be editable / uneditable
      *
      */
@@ -212,8 +205,6 @@ class TransactionPinFragment : Fragment(), TextWatcher {
 //            binding.digit1.setText(clickedDigit)
 //            currentEditText.requestLayout()
             Log.d("DigitClick", currentEditText.text.toString())
-
-
 
             // Move focus to the next EditText, if available
             val currentIndex = editTextArray.indexOf(currentEditText)
@@ -302,8 +293,8 @@ class TransactionPinFragment : Fragment(), TextWatcher {
                         val result = debitResponse.body()!!.entity
 
                         transactionResult.authCode = result!!.auth
-                        transactionResult.responseCode = result!!.resp
-                        transactionResult.responseDescription = result!!.meaning
+                        transactionResult.responseCode = result.resp
+                        transactionResult.responseDescription = result.meaning
                     } else {
                         transactionResult.authCode = "NA"
                         transactionResult.responseCode = "NA"
