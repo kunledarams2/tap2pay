@@ -37,7 +37,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideBlocAPIService(
-        @Named("BlocApiService") client: Lazy<OkHttpClient>,
+//        @Named("BlocApiService") client: Lazy<OkHttpClient>,
         gson: Gson,
         prefsValueHelper: PrefsValueHelper
     ): BlocApiService {
