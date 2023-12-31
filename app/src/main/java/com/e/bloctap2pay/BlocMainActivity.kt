@@ -63,7 +63,7 @@ class BlocMainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             Log.d("Destination", destination.label.toString())
 
-            if (destination.label.toString() == "fragment_tap_pay") {
+            if (destination.label.toString() == "TapPayFragment") {
                 Log.d("Arguments", arguments.toString())
                 bundle = arguments!!
             }
