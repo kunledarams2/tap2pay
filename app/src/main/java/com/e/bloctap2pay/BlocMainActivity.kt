@@ -49,8 +49,6 @@ class BlocMainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var prefsUtils: PrefsUtils
-    @Inject
-    lateinit var blocApiService: BlocApiService
     private var initialParams: InitialParams?=null
 
 
@@ -156,7 +154,7 @@ class BlocMainActivity : AppCompatActivity() {
     }
 
 
-      fun processPayment( pin:String, initialParams: InitialParams, card: EmvCard, amount:String) {
+/*      fun processPayment( pin:String, initialParams: InitialParams, card: EmvCard, amount:String) {
 
         val transactionResult = TransactionResult()
         val tags: HashMap<*, *> = mProvider.tags
@@ -165,8 +163,8 @@ class BlocMainActivity : AppCompatActivity() {
             serial_number = initialParams.deviceId, //
             field3 = "001000",
             field4 = TransactionPinFragment.getField4(BigDecimal(amount).toString() + "00"),
-            field23 = "001"/*padLeft(mCard.pan,3, '0')!!*/,
-            field35 = card.track2 /* tags["57"].toString()*/,
+            field23 = "001"*//*padLeft(mCard.pan,3, '0')!!*//*,
+            field35 = card.track2 *//* tags["57"].toString()*//*,
             field52 = PinEnc.encryptPinBlock(
                 pin,
                 card.cardNumber,
@@ -188,14 +186,14 @@ class BlocMainActivity : AppCompatActivity() {
 
         transactionResult.amount = amount.toDouble()
         transactionResult.mid = ""
-        transactionResult.tid = /*model.tid*/initialParams.terminalId
+        transactionResult.tid = *//*model.tid*//*initialParams.terminalId
         transactionResult.merchantName = ""
 
         transactionResult.maskedPan = StringUtils.processPan(card.cardNumber)
 
         transactionResult.expiryDate = TransactionPinFragment.getExpiryDate(card.track2)
         transactionResult.cardholderName =
-            "${card.holderLastname} ${card.holderFirstname}" /*StringUtils.hexStringToUTF8String(response.CardHolderName)*/
+            "${card.holderLastname} ${card.holderFirstname}" *//*StringUtils.hexStringToUTF8String(response.CardHolderName)*//*
         transactionResult.refNumber = ""
         transactionResult.stan = ""
         transactionResult.transType = "PURCHASE"
@@ -232,5 +230,5 @@ class BlocMainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
+    }*/
 }

@@ -41,7 +41,7 @@ object AppModule {
         gson: Gson,
         prefsValueHelper: PrefsValueHelper
     ): BlocApiService {
-        val baseUrl = if (prefsValueHelper.initParams!!.appEnvironment =="test")  "https://dev.one.blochq.io/v1" else "https://api.blochq.io/v1"
+        val baseUrl = if (prefsValueHelper.initParams!!.appEnvironment =="test")  "https://dev.one.blochq.io/v1/" else "https://api.blochq.io/v1/"
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)

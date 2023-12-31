@@ -31,7 +31,7 @@ import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import javax.inject.Inject
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class TransactionPinFragment : Fragment(), TextWatcher {
 
     lateinit var binding:FragmentTransactionPinBinding
@@ -47,10 +47,10 @@ class TransactionPinFragment : Fragment(), TextWatcher {
     @Inject
     lateinit var blocApiService: BlocApiService
 
-    protected val blocMainActivity: BlocMainActivity
-        get() {
-            return activity as? BlocMainActivity ?: throw IllegalStateException("Not attached!")
-        }
+//    protected val blocMainActivity: BlocMainActivity
+//        get() {
+//            return activity as? BlocMainActivity ?: throw IllegalStateException("Not attached!")
+//        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -294,7 +294,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
 //        blocMainActivity.processPayment()
 
         CoroutineScope(Dispatchers.IO).launch {
-            val debitResponse = blocMainActivity.blocApiService.performCardDebit(cardDebitRequest)
+            val debitResponse = blocApiService.performCardDebit(cardDebitRequest)
             withContext(Dispatchers.Main) {
                 if (debitResponse.isSuccessful) {
                     Log.d("Response", debitResponse.body().toString())
