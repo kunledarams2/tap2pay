@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.e.bloctap2pay.BlocMainActivity
 import com.e.bloctap2pay.R
 
 import com.e.bloctap2pay.databinding.FragmentTransactionPinBinding
@@ -45,6 +46,11 @@ class TransactionPinFragment : Fragment(), TextWatcher {
 //    private var prefsValueHelper: PrefsValueHelper?=null
     @Inject
     lateinit var blocApiService: BlocApiService
+
+    protected val blocMainActivity: BlocMainActivity
+        get() {
+            return activity as? BlocMainActivity ?: throw IllegalStateException("Not attached!")
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -285,8 +291,10 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         binding.keyPadWrapper.visibility = View.GONE
         binding.processPaymentWrapper.visibility = View.VISIBLE
 
+//        blocMainActivity.processPayment()
+
         CoroutineScope(Dispatchers.IO).launch {
-            val debitResponse = blocApiService.performCardDebit(cardDebitRequest)
+            val debitResponse = blocMainActivity.blocApiService.performCardDebit(cardDebitRequest)
             withContext(Dispatchers.Main) {
                 if (debitResponse.isSuccessful) {
                     Log.d("Response", debitResponse.body().toString())
@@ -322,7 +330,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         }
 
 
-        private fun getField4(amountStr: String): String {
+        fun getField4(amountStr: String): String {
             var amountStr = amountStr
             val index = amountStr.indexOf(".")
             if (amountStr.substring(index + 1, amountStr.length).length < 2) {
