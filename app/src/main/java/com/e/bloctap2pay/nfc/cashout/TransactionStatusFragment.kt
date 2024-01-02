@@ -51,11 +51,12 @@ class TransactionStatusFragment : Fragment() {
 
         binding.cancelBtn.customBtn.setOnClickListener {
 
-//            findNavController().navigate(R.id.action_transactionStatusFragment_to_dashboardFragment)
+            findNavController().navigate(R.id.action_transactionStatusFragment_to_accountTypeFragment)
         }
         binding.printBtnCtn.setOnClickListener {
-            startActivity(Intent(requireActivity(), prefsUtils.getString("clientActivity",null)!!::class.java))
-            requireActivity().finish()
+            findNavController().navigate(R.id.action_transactionStatusFragment_to_accountTypeFragment)
+//            startActivity(Intent(requireActivity(), prefsUtils.getString("clientActivity",null)!!::class.java))
+//            requireActivity().finish()
 
         }
 
