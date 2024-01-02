@@ -25,6 +25,7 @@ class TransactionStatusFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            transactionResult = it.getParcelable("transactionResult")!!
 
         }
     }
