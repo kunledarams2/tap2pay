@@ -1,13 +1,26 @@
 package com.e.bloctap2pay.nfc.utils
 
+import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import com.google.gson.Gson
 import java.lang.reflect.Type
 import java.util.*
-import javax.inject.Inject
+//import javax.inject.Inject
 
-class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, private val gson: Gson) {
+class PrefsUtils (private val sharedPref: SharedPreferences, private val gson: Gson) {
+
+
+
+    companion object {
+        // Factory method to create an instance of PrefsUtils
+        fun create(context: Context): PrefsUtils {
+            val sharedPreferences =
+                context.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)
+            val gson = Gson()
+            return PrefsUtils(sharedPreferences, gson)
+        }
+    }
 
     fun putString(key: String, value: String?) {
         sharedPref.edit {

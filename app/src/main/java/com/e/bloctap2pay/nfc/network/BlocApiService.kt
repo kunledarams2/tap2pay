@@ -1,4 +1,4 @@
-package com.e.bloctap2pay.nfc
+package com.e.bloctap2pay.nfc.network
 
 
 import com.e.bloctap2pay.nfc.model.BaseApiResponse

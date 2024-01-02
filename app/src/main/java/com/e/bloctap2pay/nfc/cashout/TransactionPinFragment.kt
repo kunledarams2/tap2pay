@@ -13,25 +13,25 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.e.bloctap2pay.BlocMainActivity
 import com.e.bloctap2pay.R
 
 import com.e.bloctap2pay.databinding.FragmentTransactionPinBinding
-import com.e.bloctap2pay.nfc.BlocApiService
+import com.e.bloctap2pay.nfc.network.BlocApiService
 import com.e.bloctap2pay.nfc.model.CardDebitRequest
 import com.e.bloctap2pay.nfc.model.EmvCard
 import com.e.bloctap2pay.nfc.model.TransactionResult
+import com.e.bloctap2pay.nfc.network.RetrofitInstance
 import com.e.bloctap2pay.nfc.utils.*
-import dagger.hilt.android.AndroidEntryPoint
+//import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 import java.math.BigDecimal
-import javax.inject.Inject
+//import javax.inject.Inject
 
-@AndroidEntryPoint
+
 class TransactionPinFragment : Fragment(), TextWatcher {
 
     lateinit var binding:FragmentTransactionPinBinding
@@ -40,11 +40,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
     private val args: TransactionPinFragmentArgs by navArgs()
     private var bundle=Bundle()
     private val mProvider: Provider = Provider()
-//    @Inject
-//    lateinit var prefsUtils: PrefsUtils
-//    private var prefsValueHelper: PrefsValueHelper?=null
-    @Inject
-    lateinit var blocApiService: BlocApiService
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,10 +64,8 @@ class TransactionPinFragment : Fragment(), TextWatcher {
         super.onViewCreated(view, savedInstanceState)
         //init buttons
         initKeyViews()
-//        prefsValueHelper = PrefsValueHelper(prefsUtils)
         val nfcData: EmvCard = args.cardData
         Log.d("Tag", nfcData.toString())
-
 
         for (i in 1..4) {
             val digitView = binding.root.findViewWithTag<EditText>("digit$i")
@@ -285,7 +279,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
 //        blocMainActivity.processPayment()
 
         CoroutineScope(Dispatchers.IO).launch {
-            val debitResponse = blocApiService.performCardDebit(cardDebitRequest)
+            val debitResponse = RetrofitInstance.blocApiService(requireContext()).performCardDebit(cardDebitRequest)
             withContext(Dispatchers.Main) {
                 if (debitResponse.isSuccessful) {
                     Log.d("Response", debitResponse.body().toString())
@@ -301,8 +295,7 @@ class TransactionPinFragment : Fragment(), TextWatcher {
                         transactionResult.responseDescription = debitResponse.body()!!.message
                     }
                     bundle.putParcelable("transactionResult", transactionResult)
-                    findNavController().navigate(
-                        R.id.action_transactionPinFragment_to_transactionStatusFragment,
+                    findNavController().navigate(R.id.action_transactionPinFragment_to_transactionStatusFragment,
                         bundle
                     )
                 }

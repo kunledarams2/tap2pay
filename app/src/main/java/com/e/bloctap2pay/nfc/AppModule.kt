@@ -4,37 +4,36 @@ package com.e.bloctap2pay.nfc
 
 //import com.google.android.datatransport.backend.cct.BuildConfig
 
-import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
-import com.e.bloctap2pay.BuildConfig
-import com.e.bloctap2pay.nfc.utils.PrefsUtils
-import com.e.bloctap2pay.nfc.utils.PrefsValueHelper
+//import android.app.Application
+//import android.content.Context
+//import android.content.SharedPreferences
+//import com.e.bloctap2pay.nfc.network.BlocApiService
+//import com.e.bloctap2pay.nfc.utils.PrefsUtils
+//import com.e.bloctap2pay.nfc.utils.PrefsValueHelper
+//
+//
+//import com.google.gson.Gson
+//
+//import dagger.Module
+//import dagger.Provides
+//import dagger.hilt.InstallIn
+//import dagger.hilt.components.SingletonComponent
+//import okhttp3.OkHttpClient
+//import okhttp3.logging.HttpLoggingInterceptor
+//import retrofit2.Retrofit
+//
+//import retrofit2.converter.gson.GsonConverterFactory
+//import java.util.concurrent.TimeUnit
+//
+//import javax.inject.Singleton
 
 
-import com.google.gson.Gson
-
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
-import javax.inject.Named
-
-import javax.inject.Singleton
-
-
-@Module
-@InstallIn(SingletonComponent::class)
+/*@Module
+@InstallIn(SingletonComponent::class)*/
 object AppModule {
 
 
-    @Provides
+/*    @Provides
     @Singleton
     fun provideBlocAPIService(
 //        @Named("BlocApiService") client: Lazy<OkHttpClient>,
@@ -98,7 +97,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideGlobalSharedPreference(app: Application): SharedPreferences =
-        app.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)
+        app.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)*/
 
 
 }
