@@ -10,8 +10,6 @@ import java.util.*
 
 class PrefsUtils (private val sharedPref: SharedPreferences, private val gson: Gson) {
 
-
-
     companion object {
         // Factory method to create an instance of PrefsUtils
         fun create(context: Context): PrefsUtils {

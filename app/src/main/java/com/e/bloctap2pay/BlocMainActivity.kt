@@ -45,6 +45,7 @@ class BlocMainActivity : AppCompatActivity() {
     lateinit var prefsUtils: PrefsUtils
     private var initialParams: InitialParams?=null
     lateinit var clientActivityName:String
+    private var mNfcUtils: NFCUtils? = null
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -69,6 +70,8 @@ class BlocMainActivity : AppCompatActivity() {
                 bundle = arguments!!
             }
         }
+
+        mNfcUtils = NFCUtils(this)
     }
 
 
@@ -147,6 +150,13 @@ class BlocMainActivity : AppCompatActivity() {
 
 
         }
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        mNfcUtils!!.enableDispatch()
 
     }
 
