@@ -18,7 +18,7 @@ class BlocTap2Pay(private val context: Context) {
         clrPinKey: String,
         terminalId: String,
         secretKey: String,
-        appEnvironment: String,
+
     ) {
         if (deviceId.isNotEmpty() && clrPinKey.isNotEmpty() && terminalId.isNotEmpty() && secretKey.isNotEmpty()) {
             val initialParams = InitialParams(
@@ -26,7 +26,7 @@ class BlocTap2Pay(private val context: Context) {
                 terminalId = terminalId,
                 secretKey = secretKey,
                 crlPinKey = clrPinKey,
-                appEnvironment = appEnvironment
+
             )
           val prefsUtils=   PrefsUtils.create(context)
             prefsUtils.putString("clientActivity", getCurrentActivityName(context))

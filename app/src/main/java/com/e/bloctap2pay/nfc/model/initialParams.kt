@@ -10,5 +10,5 @@ data class InitialParams(
     val terminalId:String,
     val secretKey:String,
     val crlPinKey:String,
-    val appEnvironment: String,
+
 ): Parcelable

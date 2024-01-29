@@ -15,7 +15,7 @@ object RetrofitInstance {
 //    private const val BASE_URL = "https://api.example.com/"
 
     private fun createRetrofit(context: Context): Retrofit {
-        val baseUrl = if (PrefsValueHelper(context).initParams!!.appEnvironment =="test")  "https://dev.one.blochq.io/v1/" else "https://api.blochq.io/v1/"
+        val baseUrl = /*if (PrefsValueHelper(context).initParams!!.appEnvironment =="test") */ "https://dev.one.blochq.io/v1/" /*else "https://api.blochq.io/v1/"*/
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -47,10 +47,10 @@ object RetrofitInstance {
             chain.proceed(request)
 
         }
-        b.addInterceptor{ chain -> val request = chain.request().newBuilder().addHeader("app-environment", prefsValueHelper.initParams!!.appEnvironment).build()
+      /*  b.addInterceptor{ chain -> val request = chain.request().newBuilder().addHeader("app-environment", prefsValueHelper.initParams!!.appEnvironment).build()
             chain.proceed(request)
 
-        }
+        }*/
         //adds logs to logcat
         return b.build()
     }
