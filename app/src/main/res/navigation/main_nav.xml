@@ -79,5 +79,8 @@
         <action
             android:id="@+id/action_tapPayFragment_to_transactionPinFragment"
             app:destination="@id/transactionPinFragment" />
+        <action
+            android:id="@+id/action_tapPayFragment_to_confirmAmountFragment"
+            app:destination="@id/confirmAmountFragment" />
     </fragment>
 </navigation>

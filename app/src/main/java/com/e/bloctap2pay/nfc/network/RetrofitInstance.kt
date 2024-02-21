@@ -12,10 +12,9 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitInstance {
 
-//    private const val BASE_URL = "https://api.example.com/"
 
     private fun createRetrofit(context: Context): Retrofit {
-        val baseUrl = /*if (PrefsValueHelper(context).initParams!!.appEnvironment =="test") */ "https://dev.one.blochq.io/v1/" /*else "https://api.blochq.io/v1/"*/
+        val baseUrl = "https://dev.one.blochq.io/v1/"
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -29,9 +28,6 @@ object RetrofitInstance {
         return createRetrofit(context).create()
     }
 
-
-
-
     private fun provideOkHttpClient(
         prefsValueHelper: PrefsValueHelper
     ): OkHttpClient {
@@ -43,14 +39,11 @@ object RetrofitInstance {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         b.addInterceptor(interceptor)
-        b.addInterceptor{ chain -> val request = chain.request().newBuilder().addHeader("Authorization", "Bearer ${prefsValueHelper.initParams!!.secretKey}").build()
+        b.addInterceptor{ chain -> val request = chain.request().newBuilder().addHeader("Authorization", "Bearer ${prefsValueHelper.initParams!!.publicKey}").build()
             chain.proceed(request)
 
         }
-      /*  b.addInterceptor{ chain -> val request = chain.request().newBuilder().addHeader("app-environment", prefsValueHelper.initParams!!.appEnvironment).build()
-            chain.proceed(request)
 
-        }*/
         //adds logs to logcat
         return b.build()
     }

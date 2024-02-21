@@ -8,31 +8,22 @@
         tools:context=".view.fragments.cashout.AccountTypeFragment">
 
 
-        <include
-            android:id="@+id/back_btn"
-            layout="@layout/nav_btn_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textView25"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="24dp"
             android:fontFamily="@font/graphik_medium"
             android:text="Pick an account type"
             android:textColor="#232324"
             android:textFontWeight="600"
             android:textSize="28sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/back_btn"
-            app:layout_constraintTop_toBottomOf="@+id/back_btn" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView13"
@@ -69,10 +60,10 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView51" />
+                app:layout_constraintTop_toBottomOf="@+id/saving_icon" />
 
             <ImageView
-                android:id="@+id/imageView51"
+                android:id="@+id/saving_icon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
@@ -109,10 +100,10 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView512" />
+                app:layout_constraintTop_toBottomOf="@+id/current_icon" />
 
             <ImageView
-                android:id="@+id/imageView512"
+                android:id="@+id/current_icon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"

@@ -75,6 +75,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:visibility="gone"
                         android:id="@+id/print_btn_ctn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

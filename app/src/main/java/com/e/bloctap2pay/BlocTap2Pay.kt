@@ -7,6 +7,7 @@ import android.content.Intent
 import com.e.bloctap2pay.nfc.model.InitialParams
 import com.e.bloctap2pay.nfc.utils.Constants.PrefKeys.INITIAL_PARAMS
 import com.e.bloctap2pay.nfc.utils.PrefsUtils
+import java.security.PublicKey
 
 //import javax.inject.Inject
 
@@ -17,14 +18,14 @@ class BlocTap2Pay(private val context: Context) {
         deviceId: String,
         clrPinKey: String,
         terminalId: String,
-        secretKey: String,
+        publicKey:  String,
 
     ) {
-        if (deviceId.isNotEmpty() && clrPinKey.isNotEmpty() && terminalId.isNotEmpty() && secretKey.isNotEmpty()) {
+        if (deviceId.isNotEmpty() && clrPinKey.isNotEmpty() && terminalId.isNotEmpty() && publicKey.isNotEmpty()) {
             val initialParams = InitialParams(
                 deviceId = deviceId,
                 terminalId = terminalId,
-                secretKey = secretKey,
+                publicKey = publicKey,
                 crlPinKey = clrPinKey,
 
             )

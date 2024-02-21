@@ -5,7 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".nfc.cashout.TransactionPinFragment">
+        tools:context=".nfc.cashout.TransactionPinFragment"
+        android:background="@color/white">
         <ScrollView
             android:id="@+id/key_pad_wrapper"
             android:layout_width="match_parent"
@@ -364,8 +365,9 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/black_gradient_button"
                     android:fontFamily="@font/graphik_regular"
-                    android:padding="4dp"
+                    android:padding="20dp"
                     android:text="Continue"
+                    android:gravity="center"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_16"

@@ -46,7 +46,7 @@
                 android:fontFamily="@font/graphik_regular"
 
                 android:padding="@dimen/dp10"
-                android:text="Tap customer’s ATM card with NFC"
+                android:text="Tap customers atm card with NFC"
                 android:textColor="#030303"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 data class InitialParams(
     val deviceId:String,
     val terminalId:String,
-    val secretKey:String,
+    val publicKey:String,
     val crlPinKey:String,
 
 ): Parcelable

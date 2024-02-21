@@ -161,7 +161,8 @@
                 android:background="@drawable/black_gradient_button"
 
                 android:fontFamily="@font/graphik_regular"
-                android:padding="4dp"
+                android:padding="20dp"
+                android:gravity="center"
                 android:text="Continue"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

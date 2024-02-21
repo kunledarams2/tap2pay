@@ -43,7 +43,7 @@ class AccountTypeFragment : Fragment(), View.OnClickListener {
         bundle = Bundle()
         binding.cardSaving.setOnClickListener(this)
         binding.cardCurrent.setOnClickListener(this)
-        binding.backBtn.customBtn.setOnClickListener(this)
+//        binding.backBtn.customBtn.setOnClickListener(this)
 
 
     }
@@ -69,9 +69,9 @@ class AccountTypeFragment : Fragment(), View.OnClickListener {
                bundle.putString(Constants.ACCOUNT_TYPE, AccountType.Current.name)
                findNavController().navigate(R.id.action_accountTypeFragment_to_amountFragment,bundle)
            }
-           R.id.back_btn->{
-//               findNavController().navigate(R.id.action_accountTypeFragment_to_dashboardFragment)
-           }
+//           R.id.back_btn->{
+////               findNavController().navigate(R.id.action_accountTypeFragment_to_dashboardFragment)
+//           }
        }
     }
 }
